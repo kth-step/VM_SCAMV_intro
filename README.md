@@ -2,7 +2,7 @@
 In our paper, we describe a method to generate test inputs to validate side-channel models.
 The implementation thereof is called SCAM-V and consists of a test input generation tool and a number of models together with a hardware benchmark platform.
 The tool has been packaged in this VM together with our evaluation results.
-However, the actual evaluation of the tool generated test inputs requires a benchmark platform, which can be built according to a repository we have made available on [GitHub](https://github.com/kth-step/EmbExp-Box) using the documentation there and a bit of special hardware.
+However, the actual evaluation of the tool generated test inputs requires a benchmark platform, which can be built with a bit of special hardware according to the documentation in the repository we have made available through the GitHub project [EmbExp-Box](https://github.com/kth-step/EmbExp-Box).
 
 In order to simplify the evaluation process, we have given access to our benchmark platform for this VM.
 This way, an evaluator is able to generate test inputs and execute them on the actual hardware benchmark platform remotely without requiring to invest in building an experiment setup first.
@@ -25,7 +25,7 @@ When SCAM-V generates test cases, it stores them in a custom directory structure
 At first, they are experiments that have not been executed yet.
 After executing them on a board, their outputs are stored in the logs and they are ready for evaluation.
 For convenient handling, the logs are a git repository that is prepared with scripts to execute and evaluate the results of executions.
-This git repository resides in `HolBA_logs/EmbExp-Logs` and more detailed information about how to use the scripts are on [GitHub](https://github.com/kth-step/EmbExp-Logs).
+This git repository resides in `HolBA_logs/EmbExp-Logs` and more detailed information about how to use the scripts are in the GitHub project [EmbExp-Logs](https://github.com/kth-step/EmbExp-Logs).
 The scripts reside in the directory "scripts" and all of them provide basic usage information if executed with the command line switch "--help".
 Each bash terminal in the VM always has the HolBA environment loaded.
 
@@ -52,12 +52,19 @@ Table 4. Cache tag and set index (faulty observational models)
 Random              > cav_20-01-23_rand_plain_mod
 ```
 
-
 ### Validating the experiment sets
 The whole process of validating individual experiments and whole sets is described in the [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) README document.
-In order to simplify this process, we provide scripts in this VM to support high level operation and ease the introduction to SCAM-V.
+In order to simplify this process, we provide a script in this VM to support high level operation and ease the introduction to SCAM-V.
 
-TODO: introduce scripts here
+The process to validate an experiment set is as follows:
+1. Select a branch from the list above (e.g., `cav_19_12_03_qc_xld_len4_indexonly`) and execute the following:
+   ```
+   ./introduction/scripts/1_validate_branch.sh cav_19_12_03_qc_xld_len4_indexonly
+   ```
+1. Follow the outputs and answer the questions of the script.
+1. Wait for the experiments to finish in the first terminal.
+1. Make sure to terminate the board connection in the second terminal once the experiments finished.
+1. Check the results using `git diff`. For comments on this, see the last part of the section "Validating a complete experiment set" of the [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) README document.
 
 
 ## 2. Reproducing results
@@ -81,17 +88,28 @@ This generates a new branch in the logs with the name `reprod_qc_xld_len4_indexo
 It is possible to go ahead an start executing the newly generated test cases in parallel to the generation process with an additional terminal.
 However, it is important to note that this process cannot be run again until the logs repository is manually brought back to the untouched master branch.
 
-
-
 ### Executing new test cases
 This step requires that the previous step is completed and the process of generating test cases is either running or completed.
 For this part we need two terminals.
 In one we run `./scripts/2-connect.sh rpi3` to connect to a Raspberry Pi 3 board.
 In the second one we run `./scripts/3-run.sh arm8/exps2` to work through the generated test cases until there are no new test cases for a certain amount of time.
 
-
 ### Evaluating new test cases
 This step requires that the repository `EmbExp-Logs` contains experiments.
 Typically, one evaluates the test cases during the process of generating new test cases and executing these test cases, as well as after everything is complete.
 It is best to monitor the progress from time to time with `./scripts/4-status.sh` and restart the run and connect scripts in case there is no progress due to hardware and similar issues.
+
+
+
+## 3. Extendability to new problem spaces
+Finally, one may want to extend SCAM-V for new observational models, attacker models, or hardware types.
+
+The relevant places for adding new or modifying existing observational models are described in the [SCAM-V](https://github.com/kth-step/HolBA/tree/dev_scamv/src/tools/scamv) documentation.
+For new attacker models, the code of [`EmbExp-ProgPlatform`](https://github.com/kth-step/EmbExp-ProgPlatform) needs to be reviewed and extended.
+Additionally, new command line switches need to be added to SCAM-V.
+
+Adding new hardware may require integration of a new ISA model into HolBA as well as porting or adding the desired observational model in SCAM-V.
+Additionally, new command line switches may be required for SCAM-V.
+If the intended hardware is not yet integrated in `EmbExp-ProgPlatform` and [`EmbExp-Box`](https://github.com/kth-step/EmbExp-Box), these repositories require respective additions as well.
+Their documentation, code and commit history may be consulted for this purpose.
 
