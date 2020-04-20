@@ -38,6 +38,6 @@ done
 "./scripts/3-run.sh" arm8/exps2
 
 # 5. print information
-echo "Experiment running has finished, please check terminate the connection to the board in the new terminal window, make sure that the experiment generation terminated already and check the results"
+echo "Experiment running has finished, please terminate the connection to the board in the new terminal window, make sure that the experiment generation terminated already and check the results"
 
 
