@@ -21,7 +21,7 @@ git checkout "${BRANCH}"
 echo "Number of experiment runs before clearing: "
 find arm8 -name run.* | wc -l
 echo "Clearing now..."
-find arm8 -name run.* -type d -exec rm -rf {} \;
+find arm8 -name run.* -type d -exec rm -rf {} \; 2> /dev/null | cat
 echo "Number of experiment runs after clearing: "
 find arm8 -name run.* | wc -l
 
