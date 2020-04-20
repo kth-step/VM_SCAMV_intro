@@ -8,6 +8,8 @@ BRANCH=$1
 SCRIPTS_DIR=$(dirname "${BASH_SOURCE[0]}")
 SCRIPTS_DIR=$(readlink -f "${SCRIPTS_DIR}")
 
+SCAMV_SCRIPTS_DIR="${HOLBA_DIR}/src/tools/scamv/examples/scripts"
+
 # 0. go to logs directory
 cd "${HOLBA_LOGS_DIR}/EmbExp-Logs"
 
@@ -26,8 +28,10 @@ echo "Number of experiment runs after clearing: "
 find arm8 -name run.* | wc -l
 
 # 4. spawn a terminal to connect to a board, ask the user to say when the connection to the board is established
-gnome-terminal -- bash -i -c "\"${HOLBA_DIR}/src/tools/scamv/examples/scripts/2-connect.sh\" rpi3; sleep 2s" > /dev/null &
-echo "Wait until the new terminal shows the line \"===    finished starting    ===\". Is the connection to the board successfully established?"
+gnome-terminal -- bash -i -c "\"${SCAMV_SCRIPTS_DIR}/2-connect.sh\" rpi3; sleep 2s" > /dev/null &
+echo "=================================================================="
+echo "Wait until the new terminal shows the line \"===    finished starting    ===\"."
+echo "Is the connection to the board successfully established?"
 select yn in "Yes" "No"; do
   case $yn in
     Yes ) break;;

@@ -8,14 +8,15 @@ EXPGENRUN_ID_PARAM=$1
 SCRIPTS_DIR=$(dirname "${BASH_SOURCE[0]}")
 SCRIPTS_DIR=$(readlink -f "${SCRIPTS_DIR}")
 
-# 0. go to scamv examples directory
-cd "${HOLBA_DIR}/src/tools/scamv/examples"
+SCAMV_SCRIPTS_DIR="${HOLBA_DIR}/src/tools/scamv/examples/scripts"
 
 # 1. ensure that logs repository has no changes
 "${SCRIPTS_DIR}/0_ensure_clean_state.sh"
 
 # 2. spawn experiment generation
-gnome-terminal -- bash -c "\"./scripts/1-gen.sh\" reprod \"${EXPGENRUN_ID_PARAM}\""
+gnome-terminal -- bash -i -c "\"${SCAMV_SCRIPTS_DIR}/1-gen.sh\" reprod \"${EXPGENRUN_ID_PARAM}\"; sleep 2s" > /dev/null &
+echo "=================================================================="
+echo "Wait until SCAM-V outputs are continuously running in the new terminal."
 echo "Is the experiment generation running?"
 select yn in "Yes" "No"; do
   case $yn in
@@ -25,7 +26,9 @@ select yn in "Yes" "No"; do
 done
 
 # 3. spawn a terminal to connect to a board, ask the user to say when the connection to the board is established
-gnome-terminal -- bash -c "\"./scripts/2-connect.sh\" rpi3"
+gnome-terminal -- bash -i -c "\"${SCAMV_SCRIPTS_DIR}/2-connect.sh\" rpi3; sleep 2s" > /dev/null &
+echo "=================================================================="
+echo "Wait until the new terminal shows the line \"===    finished starting    ===\"."
 echo "Is the connection to the board successfully established?"
 select yn in "Yes" "No"; do
   case $yn in
@@ -35,9 +38,11 @@ select yn in "Yes" "No"; do
 done
 
 # 4. run experiments using scam-v script
-"./scripts/3-run.sh" arm8/exps2
+"${SCAMV_SCRIPTS_DIR}/3-run.sh" arm8/exps2
 
 # 5. print information
+echo ""
+echo "=================================================================="
 echo "Experiment running has finished, please terminate the connection to the board in the new terminal window, make sure that the experiment generation terminated already and check the results"
 
 
