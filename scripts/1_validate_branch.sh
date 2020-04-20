@@ -4,24 +4,18 @@ set -e
 
 BRANCH=$1
 
+# get scripts directory path
+SCRIPTS_DIR=$(dirname "${BASH_SOURCE[0]}")
+SCRIPTS_DIR=$(readlink -f "${SCRIPTS_DIR}")
+
 # 0. go to logs directory
 cd "${HOLBA_LOGS_DIR}/EmbExp-Logs"
 
 # 1. ensure that logs repository has no changes
-if [[ ! -z "$(git status --porcelain)" ]]; then
-  echo "The logs repository is not clean, do you want to discard all changes?"
-  select yn in "Yes" "No"; do
-    case $yn in
-      Yes ) git clean -xfd; git checkout -- .; break;;
-      No )  echo "logs repository is not clean, cannot go ahead"; exit -1;;
-    esac
-  done
-fi
-git checkout master
+"${SCRIPTS_DIR}/0_ensure_clean_state.sh"
 
-# 2. checkout BRANCH and clean everything
+# 2. checkout BRANCH
 git checkout "${BRANCH}"
-git clean -fdx
 
 # 3. clear experiment runs
 echo "Number of experiment runs before clearing: "
