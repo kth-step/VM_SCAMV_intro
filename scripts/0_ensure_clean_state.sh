@@ -19,7 +19,7 @@ git checkout master
 git clean -fdx
 
 # 2. get rid of branches that may have been created when reproducing experiments
-REPROD_BRANCHES=`git branch | grep -E 'reprod_.*' | cat`
+REPROD_BRANCHES=`git branch --format="%(refname:short)" | grep -E 'reprod_.*' | cat`
 if [[ ! -z "${REPROD_BRANCHES}" ]]; then
   echo "Do you want to delete all reproduce branches?"
   select yn in "Yes" "No"; do
