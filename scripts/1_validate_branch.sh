@@ -39,8 +39,11 @@ done
 "${HOLBA_DIR}/src/tools/scamv/examples/scripts/3-run.sh" arm8/exps2
 
 # 6. print information
+echo ""
+echo "=================================================================="
 echo "Experiment rerunning has finished, please terminate the connection to the board in the new terminal window and check the results manually now using \"git diff\""
-
+echo ""
+echo "=================================================================="
 echo "Number of experiment runs after rerunning: "
 find arm8 -name run.* | wc -l
 
