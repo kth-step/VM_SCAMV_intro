@@ -61,8 +61,12 @@ The process to validate an experiment set is as follows:
    ```
    ./introduction/scripts/1_validate_branch.sh cav_19_12_03_qc_xld_len4_indexonly
    ```
-1. Follow the outputs and answer the questions of the script.
-1. Wait for the experiments to finish in the first terminal.
+1. Follow the outputs and answer the questions of the script. A second terminal will open up in the process and the first terminal will start running experiment by experiment.
+1. It is possible to see the status of the process by opening a third terminal and executing the following:
+   ```
+   ./introduction/scripts/0_status.sh
+   ```
+1. Wait for the experiments to finish in the first terminal. NOTICE: This step takes about 36 hours for the branch in the example.
 1. Make sure to terminate the board connection in the second terminal once the experiments finished.
 1. Check the results using `git diff`. For comments on this, see the last part of the section "Validating a complete experiment set" of the [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) README document.
 
