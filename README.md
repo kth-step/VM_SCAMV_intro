@@ -67,7 +67,7 @@ The process to validate an experiment set is as follows:
    ```
    ./introduction/scripts/0_status.sh
    ```
-1. Wait for the experiments to finish in the first terminal. NOTICE: This step takes about 36 hours for the example invokation shown in step 1.
+1. Wait for the experiments to finish in the first terminal. NOTICE: This step takes about 45 hours for the example invokation shown in step 1.
 1. Make sure to terminate the board connection in the second terminal once the experiments finished.
 1. Check the results using `git diff`. For comments on this, see the last part of the section "Validating a complete experiment set" of the [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) README document.
 
@@ -94,7 +94,7 @@ The process to reproduce the results includes generation of new test cases, exec
    ```
    ./introduction/scripts/0_status.sh
    ```
-1. Wait for the experiments to finish in the first terminal. NOTICE: This step takes about 36 hours for the example invokation shown in step 1.
+1. Wait for the experiments to finish in the first terminal. NOTICE: This step takes about 45 hours for the example invokation shown in step 1.
 1. Make sure to terminate the board connection in one of the secondary terminals once the experiments finished.
 1. Get an overview of the results using the status monitor script we used before.
 1. Inspect the results according to the documentation in [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) to understand the counterexamples that have been found.
