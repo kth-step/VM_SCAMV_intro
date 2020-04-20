@@ -15,6 +15,7 @@ We currently only have 4 instances of Raspberry Pi 3 available and one of us may
 Furthermore, be aware that the hardware sometimes exhibits hardware issues as mentioned in the [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) README document, in the end of section "Validating experiments and cache inspection".
 
 
+
 ## 1. The results presented in the paper
 The first step is to review the results presented in this paper.
 These are the result of generating test inputs, or experiments, using the tool SCAM-V and the execution of these experiments on our benchmark platform.
@@ -62,13 +63,14 @@ The process to validate an experiment set is as follows:
    ./introduction/scripts/1_validate_branch.sh cav_19_12_03_qc_xld_len4_indexonly
    ```
 1. Follow the outputs and answer the questions of the script. A second terminal will open up in the process and the first terminal will start running experiment by experiment.
-1. It is possible to see the status of the process by opening a third terminal and executing the following:
+1. It is possible and common practice to monitor the status of the process by opening a third terminal and executing the following from time to time to notice if something goes wrong or the hardware is stuck:
    ```
    ./introduction/scripts/0_status.sh
    ```
-1. Wait for the experiments to finish in the first terminal. NOTICE: This step takes about 36 hours for the branch in the example.
+1. Wait for the experiments to finish in the first terminal. NOTICE: This step takes about 36 hours for the example invokation shown in step 1.
 1. Make sure to terminate the board connection in the second terminal once the experiments finished.
 1. Check the results using `git diff`. For comments on this, see the last part of the section "Validating a complete experiment set" of the [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) README document.
+
 
 
 ## 2. Reproducing results
@@ -76,32 +78,26 @@ The second step is to apply the whole SCAM-V toolchain to reproduce the results 
 Therefore, we introduce the scripts to facilitate reproduction of the paper results in the following sections.
 These scripts are using existing SCAM-V tool scripts, which reside in the [SCAM-V examples](https://github.com/kth-step/HolBA/tree/dev_scamv/src/tools/scamv/examples) directory and are roughly described in the README document that is located there.
 
-TODO: introduce scripts, shorten texts below
-
-### Generating new test cases
-To produce results, we use prepared SCAM-V scripts and from now on we operate from the directory `HolBA/src/tools/scamv/examples`.
-The script to generate test cases works with the configuration files in the directory `expgenruns`, where the filenames correspond to the suffixes of the branch names we have seen in the sections before.
-With the example branch `cav_19_12_03_qc_xld_len4_indexonly`, the suffix is `qc_xld_len4_indexonly` and the corresponding configuration file is `expgenruns/qc_xld_len4_indexonly.txt`.
-
-The configuration files have been used to produce the branches of the repository `HolBA_logs/EmbExp-Logs`.
+The script to reproduce results works with the configuration files in the directory `HolBA/src/tools/scamv/examples/expgenruns`, where the filenames correspond to the suffixes of the branch names we have seen in the sections before.
+These configuration files have been used to produce the branches of the repository `HolBA_logs/EmbExp-Logs`.
+With the example branch `cav_19_12_03_qc_xld_len4_indexonly`, the suffix is `qc_xld_len4_indexonly` and the corresponding configuration file is `qc_xld_len4_indexonly.txt`.
 In these files only the first line is relevant, the rest are comments.
 The parameters in this first line are directly interpreted by SCAM-V in the HolBA environment.
-To generate test cases, we execute `./scripts/1-gen.sh reprod qc_xld_len4_indexonly`.
-This generates a new branch in the logs with the name `reprod_qc_xld_len4_indexonly` and starts the generation of test cases according to the configuration file.
 
-It is possible to go ahead an start executing the newly generated test cases in parallel to the generation process with an additional terminal.
-However, it is important to note that this process cannot be run again until the logs repository is manually brought back to the untouched master branch.
-
-### Executing new test cases
-This step requires that the previous step is completed and the process of generating test cases is either running or completed.
-For this part we need two terminals.
-In one we run `./scripts/2-connect.sh rpi3` to connect to a Raspberry Pi 3 board.
-In the second one we run `./scripts/3-run.sh arm8/exps2` to work through the generated test cases until there are no new test cases for a certain amount of time.
-
-### Evaluating new test cases
-This step requires that the repository `EmbExp-Logs` contains experiments.
-Typically, one evaluates the test cases during the process of generating new test cases and executing these test cases, as well as after everything is complete.
-It is best to monitor the progress from time to time with `./scripts/4-status.sh` and restart the run and connect scripts in case there is no progress due to hardware and similar issues.
+The process to reproduce the results includes generation of new test cases, executing these test cases, and evaluating the results. The steps are as follows:
+1. Select a branch from the list above (e.g., `cav_19_12_03_qc_xld_len4_indexonly`), extract the configuration id (e.g., `qc_xld_len4_indexonly`) and execute the following:
+   ```
+   ./introduction/scripts/2_reproduce_experimentset.sh qc_xld_len4_indexonly
+   ```
+1. Follow the outputs and answer the questions of the script. Two more terminals will open up in the process and the first terminal will start running experiment by experiment.
+1. It is possible and common practice to monitor the status of the process by opening a third terminal and executing the following from time to time to notice if something goes wrong or the hardware is stuck:
+   ```
+   ./introduction/scripts/0_status.sh
+   ```
+1. Wait for the experiments to finish in the first terminal. NOTICE: This step takes about 36 hours for the example invokation shown in step 1.
+1. Make sure to terminate the board connection in one of the secondary terminals once the experiments finished.
+1. Get an overview of the results using the status monitor script we used before.
+1. Inspect the results according to the documentation in [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) to understand the counterexamples that have been found.
 
 
 
