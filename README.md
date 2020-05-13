@@ -57,6 +57,11 @@ Random              > cav_20-01-23_rand_plain_mod
 The whole process of validating individual experiments and whole sets is described in the [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) README document.
 In order to simplify this process, we provide a script in this VM to support high level operation and ease the introduction to SCAM-V.
 
+Notice that it may happen that the experiment execution process stalls due to run-time issues as indicated in the `EmbExp-Logs` [README file](https://github.com/kth-step/EmbExp-Logs/blob/master/README.md).
+In this case many experiments execute without a result, which is indicated with the warning `unsuccessful`.
+This requires either to issue a complete restart or, better yet, to cancel the running experiments and resume by manually orchestrating the scripts in [SCAM-V examples](https://github.com/kth-step/HolBA/tree/dev_scamv/src/tools/scamv/examples) or [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) according to the documentation.
+We do not provide a high level script for this purpose.
+
 The process to validate an experiment set is as follows:
 1. Select a branch from the list above (e.g., `cav_19_12_03_qc_xld_len4_indexonly`) and execute the following:
    ```
@@ -78,11 +83,14 @@ The second step is to apply the whole SCAM-V toolchain to reproduce the results 
 Therefore, we introduce the scripts to facilitate reproduction of the paper results in the following sections.
 These scripts are using existing SCAM-V tool scripts, which reside in the [SCAM-V examples](https://github.com/kth-step/HolBA/tree/dev_scamv/src/tools/scamv/examples) directory and are roughly described in the README document that is located there.
 
-The script to reproduce results works with the configuration files in the directory `HolBA/src/tools/scamv/examples/expgenruns`, where the filenames correspond to the suffixes of the branch names we have seen in the sections before.
+Reproducing results is based on the configuration files in the directory `HolBA/src/tools/scamv/examples/expgenruns`, where the filenames correspond to the suffixes of the branch names we have seen in the sections before.
 These configuration files have been used to produce the branches of the repository `HolBA_logs/EmbExp-Logs`.
 With the example branch `cav_19_12_03_qc_xld_len4_indexonly`, the suffix is `qc_xld_len4_indexonly` and the corresponding configuration file is `qc_xld_len4_indexonly.txt`.
 In these files only the first line is relevant, the rest are comments.
 The parameters in this first line are directly interpreted by SCAM-V in the HolBA environment.
+
+The experiment execution process may stall due to various run-time effects like described in the previous section (with infinite `unsuccessful` warnings).
+In this case a complete restart or a manual cancel and resume operation is required.
 
 The process to reproduce the results includes generation of new test cases, executing these test cases, and evaluating the results. The steps are as follows:
 1. Select a branch from the list above (e.g., `cav_19_12_03_qc_xld_len4_indexonly`), extract the configuration id (e.g., `qc_xld_len4_indexonly`) and execute the following:
