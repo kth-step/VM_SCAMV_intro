@@ -1,0 +1,185 @@
+figure 7, column 1.1 (armclaim, no refinement)
+----------------------------------------
+
+/home/scamv/scamv/orig_exps//figure7/logs-armclaim_mem_address_pc.db
+
+SCAM-V/HolBA run id: 2021-04-08_13-44-31_977
+
+exps_list_id = 2
+progs_list_id = 2
+scamv arguments = -i 8 -t 1000 --generator list --generator_param HOLBA.2021-04-07_17-30-41_937 --obs_model mem_address_pc --hw_obs_model hw_cache_tag_index -T
+
+logged scamv gen run time = Duration: 67830.081s
+
+
+numprogswithresult = 8
+numprogswithcounterexample = 0
+
+numexps = 8000
+numexpswithresult = 8000
+numexpsascounterexamples = 0
+numexpsasinconclusive = 87
+numexpsasexception = 0
+
+firstcounterexample_id = None
+
+
+
+
+figure 7, column 1.2 (armclaim, with refinement)
+----------------------------------------
+
+/home/scamv/scamv/orig_exps//figure7/logs-armclaim_cache_speculation.db
+
+SCAM-V/HolBA run id: 2021-04-07_17-30-41_937
+
+exps_list_id = 1
+progs_list_id = 1
+scamv arguments = -i 8 -t 1000 --generator qc --generator_param spectre_v1_mod2 --obs_model cache_speculation --hw_obs_model hw_cache_tag_index -T
+
+logged scamv gen run time = Duration: 72286.911s
+
+
+numprogswithresult = 8
+numprogswithcounterexample = 8
+
+numexps = 8000
+numexpswithresult = 8000
+numexpsascounterexamples = 3423
+numexpsasinconclusive = 87
+numexpsasexception = 0
+
+firstcounterexample_id = 1
+
+
+
+figure 7, column 2.1 (armclaim, observe first speculative memory access, with refinement)
+----------------------------------------
+
+/home/scamv/scamv/orig_exps//figure7/logs-armclaim_cache_speculation_first.db
+
+SCAM-V/HolBA run id: 2021-04-08_13-39-25_612
+
+exps_list_id = 2
+progs_list_id = 2
+scamv arguments = -i 8 -t 1000 --generator list --generator_param HOLBA.2021-04-07_17-30-41_937 --obs_model cache_speculation_first --hw_obs_model hw_cache_tag_index -T
+
+logged scamv gen run time = Duration: 78692.108s
+
+
+numprogswithresult = 8
+numprogswithcounterexample = 0
+
+numexps = 8000
+numexpswithresult = 8000
+numexpsascounterexamples = 0
+numexpsasinconclusive = 87
+numexpsasexception = 0
+
+firstcounterexample_id = None
+
+
+
+figure 7, column 2.2 (template b, observe first speculative memory access, with refinement)
+----------------------------------------
+
+/home/scamv/scamv/orig_exps//table1/4_logs-templateB/logs_templateB_batch1_p1p2p3.db
+
+SCAM-V/HolBA run id: 2021-04-13_01-23-52_668
+
+exps_list_id = 4
+progs_list_id = 6
+scamv arguments = -t 40 -i 502 --obs_model cache_speculation_first --hw_obs_model hw_cache_tag_index -T --generator list --generator_param SPLIT.HOLBA.2021-01-26_18-03-21_408.0
+
+logged scamv gen run time = Duration: 134596.932s
+
+
+numprogswithresult = 467
+numprogswithcounterexample = 23
+
+numexps = 18680
+numexpswithresult = 18680
+numexpsascounterexamples = 72
+numexpsasinconclusive = 143
+numexpsasexception = 0
+
+firstcounterexample_id = 1244
+
+-----
+
+/home/scamv/scamv/orig_exps//table1/4_logs-templateB/logs_templateB_batch2_p1p2p3.db
+
+SCAM-V/HolBA run id: 2021-04-13_01-24-13_308
+
+exps_list_id = 4
+progs_list_id = 6
+scamv arguments = -t 40 -i 502 --obs_model cache_speculation_first --hw_obs_model hw_cache_tag_index -T --generator list --generator_param SPLIT.HOLBA.2021-01-26_18-03-21_408.1
+
+logged scamv gen run time = Duration: 128574.317s
+
+
+numprogswithresult = 448
+numprogswithcounterexample = 37
+
+numexps = 17920
+numexpswithresult = 17920
+numexpsascounterexamples = 134
+numexpsasinconclusive = 160
+numexpsasexception = 0
+
+firstcounterexample_id = 499
+
+
+
+
+figure 7, column 3 (straightline speculation, with refinement)
+----------------------------------------
+
+/home/scamv/scamv/orig_exps//figure7/straightline/logs_straightline_b1.db
+
+SCAM-V/HolBA run id: 2021-04-10_14-54-43_533
+
+exps_list_id = 2
+progs_list_id = 10
+scamv arguments = -t 100 -i 252 --generator list --generator_param SPLIT.HOLBA.2021-04-10_02-38-43_557.0 --obs_model cache_straightline --hw_obs_model hw_cache_tag_index
+
+logged scamv gen run time = Duration: 94280.667s
+
+
+numprogswithresult = 238
+numprogswithcounterexample = 0
+
+numexps = 23800
+numexpswithresult = 23800
+numexpsascounterexamples = 0
+numexpsasinconclusive = 0
+numexpsasexception = 0
+
+firstcounterexample_id = None
+
+-----
+
+/home/scamv/scamv/orig_exps//figure7/straightline/logs_straightline_b2.db
+
+SCAM-V/HolBA run id: 2021-04-13_16-13-30_488
+
+exps_list_id = 2
+progs_list_id = 10
+scamv arguments = -t 100 -i 252 --generator list --generator_param SPLIT.HOLBA.2021-04-10_02-38-43_557.1 --obs_model cache_straightline --hw_obs_model hw_cache_tag_index
+
+logged scamv gen run time = Duration: 97986.608s
+
+
+numprogswithresult = 240
+numprogswithcounterexample = 0
+
+numexps = 24000
+numexpswithresult = 24000
+numexpsascounterexamples = 0
+numexpsasinconclusive = 0
+numexpsasexception = 0
+
+firstcounterexample_id = None
+
+
+

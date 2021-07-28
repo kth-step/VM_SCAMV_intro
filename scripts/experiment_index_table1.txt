@@ -1,0 +1,273 @@
+table 1, column 1.1 (cache partitioning non-aligned, no refinement)
+----------------------------------------
+
+/home/scamv/scamv/orig_exps//table1/1_1_logs_cachepartnopageboundary.db
+
+SCAM-V/HolBA run id: 2021-04-06_08-57-18_724
+==================================================
+
+exps_list_id = 2
+progs_list_id = 2
+scamv arguments = -i 450 -t 40 --prog_size 5 --generator list --generator_param HOLBA.2021-04-05_18-19-13_541 --obs_model cache_tag_index_part --hw_obs_model hw_cache_tag_index_part
+
+logged scamv gen run time = Duration: 58927.785s
+
+
+numprogswithresult = 450
+numprogswithcounterexample = 21
+
+numexps = 13752
+numexpswithresult = 13752
+numexpsascounterexamples = 21
+numexpsasinconclusive = 1096
+numexpsasexception = 0
+
+firstcounterexample_id = 1170
+
+
+
+
+table 1, column 1.2 (cache partitioning non-aligned, with refinement)
+----------------------------------------
+
+/home/scamv/scamv/orig_exps//table1/1_2_logs_cachepartnopageboundary_withenum.db
+
+SCAM-V/HolBA run id: 2021-01-20_20-48-33_880
+==================================================
+
+exps_list_id = 1
+progs_list_id = 1
+scamv arguments = driver-test --max_iter 420 --prog_size 5 --max_tests 40 --enumerate --generator prefetch_strides --obs_model cache_tag_index_part --hw_obs_model hw_cache_tag_index_part
+
+logged scamv gen run time = Duration: 31326.427s
+
+
+numprogswithresult = 404
+numprogswithcounterexample = 82
+
+numexps = 16154
+numexpswithresult = 16154
+numexpsascounterexamples = 304
+numexpsasinconclusive = 1293
+numexpsasexception = 0
+
+firstcounterexample_id = 25
+
+
+
+table 1, column 2.1 (cache partitioning aligned, no refinement)
+----------------------------------------
+
+/home/scamv/scamv/orig_exps//table1/2_1_logs_cachepartpage_noenum.db
+
+SCAM-V/HolBA run id: 2021-01-27_22-44-05_349
+==================================================
+exps_list_id = 12
+progs_list_id = 14
+scamv arguments = --max_iter 427 --prog_size 5 --max_tests 40 --generator list --generator_param remaining425_p2 --obs_model cache_tag_index_part_page --hw_obs_model hw_cache_tag_index_part_page
+
+logged scamv gen run time = Duration: 108994.226s
+
+
+numprogswithresult = 425
+numprogswithcounterexample = 0
+
+numexps = 12860
+numexpswithresult = 12860
+numexpsascounterexamples = 0
+numexpsasinconclusive = 612
+numexpsasexception = 0
+
+firstcounterexample_id = None
+
+
+
+table 1, column 2.2 (cache partitioning aligned, with refinement)
+----------------------------------------
+
+/home/scamv/scamv/orig_exps//table1/2_2_logs_cachepartpage_withenum.db
+
+SCAM-V/HolBA run id: 2021-01-26_17-54-54_267
+
+exps_list_id = 10
+progs_list_id = 12
+scamv arguments = --max_iter 427 --prog_size 5 --max_tests 40 --generator list --generator_param remaining425_p2 --obs_model cache_tag_index_part_page --hw_obs_model hw_cache_tag_index_part_page --enumerate
+
+logged scamv gen run time = Duration: 78505.019s
+
+
+numprogswithresult = 425
+numprogswithcounterexample = 0
+
+numexps = 17000
+numexpswithresult = 17000
+numexpsascounterexamples = 0
+numexpsasinconclusive = 4245
+numexpsasexception = 0
+
+firstcounterexample_id = None
+
+
+
+
+table 1, column 3.1 (template A, no refinement)
+----------------------------------------
+
+/home/scamv/scamv/orig_exps//table1/3_logs-TemplateA.db
+
+SCAM-V/HolBA run id: 2021-03-30_10-21-45_317
+
+exps_list_id = 2
+progs_list_id = 2
+scamv arguments = -i 760 -t 40 --generator list --generator_param HOLBA.2021-03-29_10-37-01_009 --obs_model mem_address_pc --hw_obs_model hw_cache_tag_index -T
+
+logged scamv gen run time = Duration: 122640.134s
+
+
+numprogswithresult = 655
+numprogswithcounterexample = 6
+
+numexps = 26200
+numexpswithresult = 26200
+numexpsascounterexamples = 6
+numexpsasinconclusive = 5
+numexpsasexception = 0
+
+firstcounterexample_id = 6750
+
+
+
+table 1, column 3.2 (template A, with refinement)
+----------------------------------------
+
+/home/scamv/scamv/orig_exps//table1/3_logs-TemplateA.db
+
+SCAM-V/HolBA run id: 2021-03-29_10-37-01_009
+
+exps_list_id = 1
+progs_list_id = 1
+scamv arguments = -i 800 -t 40 --generator qc --generator_param spectre --obs_model cache_speculation --hw_obs_model hw_cache_tag_index -T
+
+logged scamv gen run time = Duration: 82934.617s
+
+
+numprogswithresult = 652
+numprogswithcounterexample = 626
+
+numexps = 26360
+numexpswithresult = 25737
+numexpsascounterexamples = 12462
+numexpsasinconclusive = 506
+numexpsasexception = 623
+
+firstcounterexample_id = 1
+
+
+
+
+table 1, column 4.1 (template B, no refinement)
+----------------------------------------
+
+/home/scamv/scamv/orig_exps//table1/4_logs-templateB/logs_templateB_batch1_p1p2p3.db
+
+SCAM-V/HolBA run id: 2021-04-07_19-19-07_315
+
+exps_list_id = 2
+progs_list_id = 4
+scamv arguments = -t 40 -i 502 --obs_model mem_address_pc --hw_obs_model hw_cache_tag_index -T --generator list --generator_param SPLIT.HOLBA.2021-01-26_18-03-21_408.0
+
+logged scamv gen run time = Duration: 49599.758s
+
+
+numprogswithresult = 476
+numprogswithcounterexample = 0
+
+numexps = 19040
+numexpswithresult = 19040
+numexpsascounterexamples = 0
+numexpsasinconclusive = 2
+numexpsasexception = 0
+
+firstcounterexample_id = None
+
+-----
+
+/home/scamv/scamv/orig_exps//table1/4_logs-templateB/logs_templateB_batch2_p1p2p3.db
+
+SCAM-V/HolBA run id: 2021-04-07_19-19-12_535
+
+exps_list_id = 2
+progs_list_id = 4
+scamv arguments = -t 40 -i 502 --obs_model mem_address_pc --hw_obs_model hw_cache_tag_index -T --generator list --generator_param SPLIT.HOLBA.2021-01-26_18-03-21_408.1
+
+logged scamv gen run time = Duration: 48896.500s
+
+
+numprogswithresult = 466
+numprogswithcounterexample = 0
+
+numexps = 18640
+numexpswithresult = 18640
+numexpsascounterexamples = 0
+numexpsasinconclusive = 0
+numexpsasexception = 0
+
+firstcounterexample_id = None
+
+
+
+
+table 1, column 4.2 (template B, with refinement)
+----------------------------------------
+
+/home/scamv/scamv/orig_exps//table1/4_logs-templateB/logs_templateB_batch1_p1p2p3.db
+
+SCAM-V/HolBA run id: 2021-04-10_03-48-55_400
+
+exps_list_id = 3
+progs_list_id = 5
+scamv arguments = -t 40 -i 502 --obs_model cache_speculation --hw_obs_model hw_cache_tag_index -T --generator list --generator_param SPLIT.HOLBA.2021-01-26_18-03-21_408.0
+
+logged scamv gen run time = Duration: 94650.667s
+
+
+numprogswithresult = 475
+numprogswithcounterexample = 254
+
+numexps = 19000
+numexpswithresult = 19000
+numexpsascounterexamples = 2434
+numexpsasinconclusive = 139
+numexpsasexception = 0
+
+firstcounterexample_id = 82
+
+-----
+
+/home/scamv/scamv/orig_exps//table1/4_logs-templateB/logs_templateB_batch2_p1p2p3.db
+
+SCAM-V/HolBA run id: 2021-04-10_02-43-14_924
+
+exps_list_id = 3
+progs_list_id = 5
+scamv arguments = -t 40 -i 502 --obs_model cache_speculation --hw_obs_model hw_cache_tag_index -T --generator list --generator_param SPLIT.HOLBA.2021-01-26_18-03-21_408.1
+
+logged scamv gen run time = Duration: 92616.477s
+
+
+numprogswithresult = 466
+numprogswithcounterexample = 244
+
+numexps = 18640
+numexpswithresult = 18640
+numexpsascounterexamples = 2404
+numexpsasinconclusive = 213
+numexpsasexception = 0
+
+firstcounterexample_id = 4
+
+
+
+
+
+
