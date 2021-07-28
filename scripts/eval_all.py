@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+import sys
 import subprocess
 
 os.chdir("/home/scamv/scamv/HolBA_logs/EmbExp-Logs/scripts")
@@ -32,6 +33,7 @@ for dbfile in dbfiles:
   print(60 * "!")
 
   cmd = ["./db-eval.py", "--dbfile", dbfile_full]
+  sys.stdout.flush()
   subprocess.run(cmd)
 
   print()
