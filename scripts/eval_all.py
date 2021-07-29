@@ -6,10 +6,9 @@ import subprocess
 
 os.chdir("/home/scamv/scamv/HolBA_logs/EmbExp-Logs/scripts")
 
-dbfile_prefix = "/home/scamv/scamv/orig_exps/"
+dbfile_prefix = "/home/scamv/scamv/orig_exps"
 dbfiles = [
-  "table1/1_1_logs_cachepartnopageboundary.db",
-  "table1/1_2_logs_cachepartnopageboundary_withenum.db",
+  "table1/1_logs_cachepartnopageboundary.db",
   "table1/2_1_logs_cachepartpage_noenum.db",
   "table1/2_2_logs_cachepartpage_withenum.db",
   "table1/3_logs-TemplateA.db",
