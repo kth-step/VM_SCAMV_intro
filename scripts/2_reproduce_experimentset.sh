@@ -10,7 +10,7 @@ SCRIPTS_DIR=$(readlink -f "${SCRIPTS_DIR}")
 
 SCAMV_SCRIPTS_DIR="${HOLBA_DIR}/src/tools/scamv/examples/scripts"
 
-# 1. ensure that logs repository has no changes
+# 1. ensure that logs repository has no data
 "${SCRIPTS_DIR}/0_ensure_clean_state.sh"
 
 # 2. spawn experiment generation
@@ -38,7 +38,7 @@ select yn in "Yes" "No"; do
 done
 
 # 4. run experiments using scam-v script
-"${SCAMV_SCRIPTS_DIR}/3-run.sh" arm8/exps2
+"${SCAMV_SCRIPTS_DIR}/3-run.sh"
 
 # 5. print information
 echo ""

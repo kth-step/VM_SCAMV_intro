@@ -6,6 +6,9 @@ set -e
 cd "${HOLBA_LOGS_DIR}/EmbExp-Logs"
 
 # 1. run the status script
-./scripts/status.py
+./scripts/status.py -ps
+
+# 1. evaluate the experiment sets available in the database
+./scripts/db-eval.py
 
 
