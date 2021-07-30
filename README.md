@@ -15,7 +15,6 @@ We currently only have 4 instances of Raspberry Pi 3 available and one of us may
 Furthermore, be aware that the hardware sometimes exhibits hardware issues as mentioned in the [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) README document, in the end of section "Validating experiments and cache inspection".
 
 
-
 ## 1. The results presented in the paper
 The first step is to review the results presented in this paper.
 These are the result of generating test inputs, or experiments, using the tool SCAM-V and the execution of these experiments on our benchmark platform.
@@ -76,48 +75,47 @@ The process to validate an experiment set is as follows:
 1. Make sure to terminate the board connection in the second terminal once the experiments finished.
 1. Check the results using `git diff`. For comments on this, see the last part of the section "Validating a complete experiment set" of the [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) README document.
 
+## Inspecting results
+The script `db-eval.py` in the `scamv/HolBA_logs/EmbExp-logs/scripts`
+directory can be used to present the results of an experiment set execution. Its
+command-line option `--dbfile` can be used to select the experiment database of
+interest. Here is an example output of this script taken from our prefetching experiments:
+```
+SCAM-V/HolBA run id: 2021-04-05_18-19-13_541
+==================================================
+exps_list_id = 1
+progs_list_id = 1
+scamv arguments = -i 450 -t 40 --prog_size 5 --enumerate --generator prefetch_strides --obs_model cache_tag_index_part --hw_obs_model hw_cache_tag_index_part
 
+logged scamv gen run time = Duration: 31931.859s
 
-## 2. Reproducing results
-The second step is to apply the whole SCAM-V toolchain to reproduce the results from generating test inputs up to evaluating the results of their executions.
-Therefore, we introduce the scripts to facilitate reproduction of the paper results in the following sections.
-These scripts are using existing SCAM-V tool scripts, which reside in the [SCAM-V examples](https://github.com/kth-step/HolBA/tree/dev_scamv/src/tools/scamv/examples) directory and are roughly described in the README document that is located there.
+numprogswithresult = 450
+numprogswithcounterexample = 89
 
-Reproducing results is based on the configuration files in the directory `HolBA/src/tools/scamv/examples/expgenruns`, where the filenames correspond to the suffixes of the branch names we have seen in the sections before.
-These configuration files have been used to produce the branches of the repository `HolBA_logs/EmbExp-Logs`.
-With the example branch `cav_19_12_03_qc_xld_len4_indexonly`, the suffix is `qc_xld_len4_indexonly` and the corresponding configuration file is `qc_xld_len4_indexonly.txt`.
-In these files only the first line is relevant, the rest are comments.
-The parameters in this first line are directly interpreted by SCAM-V in the HolBA environment.
+numexps = 18000
+numexpswithresult = 18000
+numexpsascounterexamples = 447
+numexpsasinconclusive = 4709
+numexpsasexception = 0
 
-The experiment execution process may stall due to various run-time effects like described in the previous section (with infinite `unsuccessful` warnings).
-In this case a complete restart or a manual cancel and resume operation is required.
+firstcounterexample_id = 398
+```
+The fields of the output are to be interpreted as follows:
 
-The process to reproduce the results includes generation of new test cases, executing these test cases, and evaluating the results. The steps are as follows:
-1. Select a branch from the list above (e.g., `cav_19_12_03_qc_xld_len4_indexonly`), extract the configuration id (e.g., `qc_xld_len4_indexonly`) and execute the following:
-   ```
-   ./introduction/scripts/2_reproduce_experimentset.sh qc_xld_len4_indexonly
-   ```
-1. Follow the outputs and answer the questions of the script. Two more terminals will open up in the process and the first terminal will start running experiment by experiment.
-1. It is possible and common practice to monitor the status of the process by opening a third terminal and executing the following from time to time to notice if something goes wrong or the hardware is stuck:
-   ```
-   ./introduction/scripts/0_status.sh
-   ```
-1. Wait for the experiments to finish in the first terminal. NOTICE: This step takes about 45 hours for the example invokation shown in step 1.
-1. Make sure to terminate the board connection in one of the secondary terminals once the experiments finished.
-1. Get an overview of the results using the status monitor script we used before.
-1. Inspect the results according to the documentation in [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) to understand the counterexamples that have been found.
+- numprogswithresult: Number of programs that produced a result
+- numprogswithcounterexample: Number of programs that produced at
+  least one counterexample
+- numexps: Number of experiments in the set
+- numexpswithresult: Number of experiments that produced a result
+- numexpsascounterexamples: Number of experiments that were counterexamples
+  (distinguishable)
+- numexpsasinconclusive: Number of experiments that were inconclusive
+- numexpsasexception: Number of experiments that throw an exception at
+  runtime
+- firstcounterexample_id: The id of the experiment that was the first found
+  counterexample. Used to compute ``time to first counterexample''.
 
-
-
-## 3. Extendability to new problem spaces
-Finally, one may want to extend SCAM-V for new observational models, attacker models, or hardware types.
-
-The relevant places for adding new or modifying existing observational models are described in the [SCAM-V](https://github.com/kth-step/HolBA/tree/dev_scamv/src/tools/scamv) documentation.
-For new attacker models, the code of [`EmbExp-ProgPlatform`](https://github.com/kth-step/EmbExp-ProgPlatform) needs to be reviewed and extended.
-Additionally, new command line switches need to be added to SCAM-V.
-
-Adding new hardware may require integration of a new ISA model into HolBA as well as porting or adding the desired observational model in SCAM-V.
-Additionally, new command line switches may be required for SCAM-V.
-If the intended hardware is not yet integrated in `EmbExp-ProgPlatform` and [`EmbExp-Box`](https://github.com/kth-step/EmbExp-Box), these repositories require respective additions as well.
-Their documentation, code and commit history may be consulted for this purpose.
-
+In this output we see that SCAM-V generated 450 programs and 18000 experiments,
+of which 447 experiments were counterexamples. We can also see that these
+counterexamples arise from 89 different programs, and that 4709 experiments were
+inconclusive.
