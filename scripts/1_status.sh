@@ -2,13 +2,10 @@
 
 set -e
 
-# 0. go to logs directory
-cd "${HOLBA_LOGS_DIR}/EmbExp-Logs"
+EXTRA_OPTIONS=${@:1}
 
-# 1. run the status script
-./scripts/status.py -ps
+SCAMV_SCRIPTS_DIR="${HOLBA_DIR}/src/tools/scamv/examples/scripts"
 
-# 1. evaluate the experiment sets available in the database
-./scripts/db-eval.py
+"${SCAMV_SCRIPTS_DIR}/4-status.sh" ${EXTRA_OPTIONS}
 
 
