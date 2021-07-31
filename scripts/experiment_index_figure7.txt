@@ -3,7 +3,7 @@ figure 7, column 1.1 (armclaim, no refinement)
 
 /home/scamv/scamv/orig_exps/figure7/logs-armclaim_mem_address_pc.db
 
-SCAM-V/HolBA run id: 2021-04-08_13-44-31_977
+Scam-V/HolBA run id: 2021-04-08_13-44-31_977
 ==================================================
 exps_list_id = 2
 progs_list_id = 2
@@ -36,7 +36,7 @@ figure 7, column 1.2 (armclaim, with refinement)
 
 /home/scamv/scamv/orig_exps/figure7/logs-armclaim_cache_speculation.db
 
-SCAM-V/HolBA run id: 2021-04-07_17-30-41_937
+Scam-V/HolBA run id: 2021-04-07_17-30-41_937
 ==================================================
 exps_list_id = 1
 progs_list_id = 1
@@ -68,7 +68,7 @@ figure 7, column 2.1 (armclaim, observe first speculative memory access, with re
 
 /home/scamv/scamv/orig_exps/figure7/logs-armclaim_cache_speculation_first.db
 
-SCAM-V/HolBA run id: 2021-04-08_13-39-25_612
+Scam-V/HolBA run id: 2021-04-08_13-39-25_612
 ==================================================
 exps_list_id = 2
 progs_list_id = 2
@@ -100,7 +100,7 @@ figure 7, column 2.2 (template b, observe first speculative memory access, with 
 
 /home/scamv/scamv/orig_exps/table1/4_logs-templateB/logs_templateB_batch1_p1p2p3.db
 
-SCAM-V/HolBA run id: 2021-04-13_01-23-52_668
+Scam-V/HolBA run id: 2021-04-13_01-23-52_668
 ==================================================
 exps_list_id = 4
 progs_list_id = 6
@@ -129,7 +129,7 @@ exps until first cexp gen    = 1244
 
 /home/scamv/scamv/orig_exps/table1/4_logs-templateB/logs_templateB_batch2_p1p2p3.db
 
-SCAM-V/HolBA run id: 2021-04-13_01-24-13_308
+Scam-V/HolBA run id: 2021-04-13_01-24-13_308
 ==================================================
 exps_list_id = 4
 progs_list_id = 6
@@ -162,7 +162,7 @@ figure 7, column 3 (straightline speculation, with refinement)
 
 /home/scamv/scamv/orig_exps/figure7/straightline/logs_straightline_b1.db
 
-SCAM-V/HolBA run id: 2021-04-10_14-54-43_533
+Scam-V/HolBA run id: 2021-04-10_14-54-43_533
 ==================================================
 exps_list_id = 2
 progs_list_id = 10
@@ -191,7 +191,7 @@ exps until first cexp gen    = None
 
 /home/scamv/scamv/orig_exps/figure7/straightline/logs_straightline_b2.db
 
-SCAM-V/HolBA run id: 2021-04-13_16-13-30_488
+Scam-V/HolBA run id: 2021-04-13_16-13-30_488
 ==================================================
 exps_list_id = 2
 progs_list_id = 10

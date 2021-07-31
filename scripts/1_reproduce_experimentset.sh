@@ -16,7 +16,7 @@ SCAMV_SCRIPTS_DIR="${HOLBA_DIR}/src/tools/scamv/examples/scripts"
 # 2. spawn experiment generation
 gnome-terminal -- bash -i -c "\"${SCAMV_SCRIPTS_DIR}/1-gen.sh\" reprod \"${EXPGENRUN_ID_PARAM}\"; sleep 2s" > /dev/null &
 echo "=================================================================="
-echo "Wait until SCAM-V outputs are continuously running in the new terminal."
+echo "Wait until Scam-V outputs are continuously running in the new terminal."
 echo "Is the experiment generation running?"
 select yn in "Yes" "No"; do
   case $yn in
@@ -37,7 +37,7 @@ select yn in "Yes" "No"; do
   esac
 done
 
-# 4. run experiments using scam-v script
+# 4. run experiments using Scam-V script
 "${SCAMV_SCRIPTS_DIR}/3-run.sh"
 
 # 5. print information

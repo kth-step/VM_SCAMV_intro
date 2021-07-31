@@ -3,7 +3,7 @@ table 1, column 1.1 (cache partitioning non-aligned, no refinement)
 
 /home/scamv/scamv/orig_exps/table1/1_logs_cachepartnopageboundary.db
 
-SCAM-V/HolBA run id: 2021-04-06_08-57-18_724
+Scam-V/HolBA run id: 2021-04-06_08-57-18_724
 ==================================================
 exps_list_id = 2
 progs_list_id = 2
@@ -36,7 +36,7 @@ table 1, column 1.2 (cache partitioning non-aligned, with refinement)
 
 /home/scamv/scamv/orig_exps/table1/1_logs_cachepartnopageboundary.db
 
-SCAM-V/HolBA run id: 2021-04-05_18-19-13_541
+Scam-V/HolBA run id: 2021-04-05_18-19-13_541
 ==================================================
 exps_list_id = 1
 progs_list_id = 1
@@ -69,7 +69,7 @@ table 1, column 2.1 (cache partitioning aligned, no refinement)
 
 /home/scamv/scamv/orig_exps/table1/2_1_logs_cachepartpage_noenum.db
 
-SCAM-V/HolBA run id: 2021-01-27_22-44-05_349
+Scam-V/HolBA run id: 2021-01-27_22-44-05_349
 ==================================================
 exps_list_id = 12
 progs_list_id = 14
@@ -101,7 +101,7 @@ table 1, column 2.2 (cache partitioning aligned, with refinement)
 
 /home/scamv/scamv/orig_exps/table1/2_2_logs_cachepartpage_withenum.db
 
-SCAM-V/HolBA run id: 2021-01-26_17-54-54_267
+Scam-V/HolBA run id: 2021-01-26_17-54-54_267
 ==================================================
 exps_list_id = 10
 progs_list_id = 12
@@ -134,7 +134,7 @@ table 1, column 3.1 (template A, no refinement)
 
 /home/scamv/scamv/orig_exps/table1/3_logs-TemplateA.db
 
-SCAM-V/HolBA run id: 2021-03-30_10-21-45_317
+Scam-V/HolBA run id: 2021-03-30_10-21-45_317
 ==================================================
 exps_list_id = 2
 progs_list_id = 2
@@ -166,7 +166,7 @@ table 1, column 3.2 (template A, with refinement)
 
 /home/scamv/scamv/orig_exps/table1/3_logs-TemplateA.db
 
-SCAM-V/HolBA run id: 2021-03-29_10-37-01_009
+Scam-V/HolBA run id: 2021-03-29_10-37-01_009
 ==================================================
 exps_list_id = 1
 progs_list_id = 1
@@ -199,7 +199,7 @@ table 1, column 4.1 (template B, no refinement)
 
 /home/scamv/scamv/orig_exps/table1/4_logs-templateB/logs_templateB_batch1_p1p2p3.db
 
-SCAM-V/HolBA run id: 2021-04-07_19-19-07_315
+Scam-V/HolBA run id: 2021-04-07_19-19-07_315
 ==================================================
 exps_list_id = 2
 progs_list_id = 4
@@ -228,7 +228,7 @@ exps until first cexp gen    = None
 
 /home/scamv/scamv/orig_exps/table1/4_logs-templateB/logs_templateB_batch2_p1p2p3.db
 
-SCAM-V/HolBA run id: 2021-04-07_19-19-12_535
+Scam-V/HolBA run id: 2021-04-07_19-19-12_535
 ==================================================
 exps_list_id = 2
 progs_list_id = 4
@@ -261,7 +261,7 @@ table 1, column 4.2 (template B, with refinement)
 
 /home/scamv/scamv/orig_exps/table1/4_logs-templateB/logs_templateB_batch1_p1p2p3.db
 
-SCAM-V/HolBA run id: 2021-04-10_03-48-55_400
+Scam-V/HolBA run id: 2021-04-10_03-48-55_400
 ==================================================
 exps_list_id = 3
 progs_list_id = 5
@@ -290,7 +290,7 @@ exps until first cexp gen    = 82
 
 /home/scamv/scamv/orig_exps/table1/4_logs-templateB/logs_templateB_batch2_p1p2p3.db
 
-SCAM-V/HolBA run id: 2021-04-10_02-43-14_924
+Scam-V/HolBA run id: 2021-04-10_02-43-14_924
 ==================================================
 exps_list_id = 3
 progs_list_id = 5

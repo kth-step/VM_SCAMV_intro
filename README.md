@@ -82,7 +82,7 @@ The fields of the output are to be interpreted as follows:
 - exps until first cexp gen:    The id of the experiment that was the first found
   counterexample. Used to compute ``time to first counterexample''.
 
-In this output we see that SCAM-V generated 450 programs and 18000 experiments,
+In this output we see that Scam-V generated 450 programs and 18000 experiments,
 of which 447 experiments were counterexamples. We can also see that these
 counterexamples arise from 89 different programs, and that 4709 experiments were
 inconclusive.
@@ -149,7 +149,7 @@ our experiments, and they are given by the following identifiers:
 
 Notice that it may happen that the experiment execution process stalls due to run-time issues as indicated in the `EmbExp-Logs` [README file](https://github.com/kth-step/EmbExp-Logs/blob/master/README.md).
 In this case many experiments execute without a result, which is indicated with the warning `unsuccessful`.
-This requires either to issue a complete restart or, better yet, to cancel the running experiments and resume by manually orchestrating the scripts in [SCAM-V examples](https://github.com/kth-step/HolBA/tree/dev_scamv/src/tools/scamv/examples) or [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) according to the documentation.
+This requires either to issue a complete restart or, better yet, to cancel the running experiments and resume by manually orchestrating the scripts in [Scam-V examples](https://github.com/kth-step/HolBA/tree/dev_scamv/src/tools/scamv/examples) or [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) according to the documentation.
 We do not provide a high level script for this purpose.
 
 The process to generate and validate an experiment set is as follows:
