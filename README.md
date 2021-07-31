@@ -11,7 +11,7 @@ The alternative is to build a local [`EmbExp-Box`](https://github.com/kth-step/E
 
 The evaluators may need to coordinate their efforts because whole experiment sets take long to execute and the hardware resources in our benchmark platform are limited.
 We currently only have 4 instances of Raspberry Pi 3 available and one of us may also use one instance during the artifact evaluation process.
-Furthermore, be aware that the hardware sometimes exhibits hardware issues as mentioned in the [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) README document, in the end of section "Manually executing and inspecting single experiments".
+Furthermore, be aware that the hardware sometimes exhibits hardware issues as mentioned in the [`EmbExp-Logs`](https://github.com/kth-step/EmbExp-Logs) README document, in the end of section "Executing and inspecting single experiments".
 
 ## 1. The results presented in the paper
 The first step is to review the results presented in this paper.
