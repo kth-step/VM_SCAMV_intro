@@ -166,8 +166,31 @@ The process to generate and validate an experiment set is as follows:
 1. Make sure to terminate the board connection in the second terminal once the experiments finished.
 1. Check the results using `./introduction/scripts/2_status.sh`.
 
-**TODO** Add caveat: these are entirely new experiments generated with the same configurations as those in the paper, which means the results will not be exactly the same every time. (Elaborate)
+## 3. Evaluation checklist
 
-## 3. Custom configurations
+Having executed experiments, in order to validate the obtained results the following points must be checked for each experiment output. 
+Notice that the numbers in our checklist are approximate and the results of experiments can be slightly affected by different factors. For example, the execution time 
+can be affected by connection's latency and throughput to the experiment board server, the number of counterexamples might be affected by unforeseen and hidden microarchitectural interactions, etc. 
 
-**TODO** Do we need this? AL: Probably not. Unless somebody has some concrete thought?
+**Model M_part.** With refinement in place:
+- Number of programs with counterexamples is ~4 times more 
+- Number of counterexamples is ~20 times greater 
+- Time to reach the first counterexample is ~4 times faster
+
+**Model M_ct Template A.** With refinement in place:
+- Number of programs with counterexamples is ~100 times more 
+- Number of counterexamples is ~2000 times greater 
+- Time to reach the first counterexample is ~7000 times faster
+
+**Model M_ct Template B.** Without refinement we do not expect to find any counterexample, while with refinement in place:
+- ~50% of all programs will have at least one counterexample
+- ~13% of all experiments will be counterexamples 
+- Time to reach the first counterexamples is ~15 minutes
+
+**Model M_ct Template C.** Without refinement we do not expect to find a counterexample, while with refinement in place:
+- ~42% of all experiments will be counterexamples 
+- Time to reach the first counterexamples is less than a minute
+
+**Model M_spec_1 Template C and B and with refinement.** While with Template C we do not expect to get any counterexample, with Template B: 
+- ~0.6% of all experiments will be counterexamples 
+- Time to reach the first counterexamples is ~4.5 hours
